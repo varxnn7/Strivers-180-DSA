@@ -1,29 +1,38 @@
 #include <bits/stdc++.h>
 using namespace std;
-// Solution class to find the (r, c) element of Pascal's Triangle
-class Solution {
-public:
-    // Function to compute binomial coefficient (nCr)
-    long long findPascalElement(int r, int c) {
-        // Element is C(r-1, c-1)
-        int n = r - 1;
-        int k = c - 1;
 
-        long long result = 1;
+int main()
+{
+  int numRows;
+  cin >> numRows;
 
-        // Compute C(n, k) using iterative formula
-        for (int i = 0; i < k; i++) {
-            result *= (n - i);
-            result /= (i + 1);
-        }
+  vector<vector<int>> ans;
 
-        return result;
+  for (int row = 1; row <= numRows; row++)
+  {
+    long long val = 1;
+    vector<int> ansRow;
+
+    ansRow.push_back(1);
+
+    for (int col = 1; col < row; col++)
+    {
+      val = val * (row - col);
+      val = val / col;
+      ansRow.push_back(val);
     }
-};
 
-int main() {
-    Solution sol;
-    int r = 5, c = 3;
-    cout << sol.findPascalElement(r, c);
-    return 0;
+    ans.push_back(ansRow);
+  }
+
+  for (int i = 0; i < ans.size(); i++)
+  {
+    for (int j = 0; j < ans[i].size(); j++)
+    {
+      cout << ans[i][j] << " ";
+    }
+    cout << endl;
+  }
+
+  return 0;
 }
