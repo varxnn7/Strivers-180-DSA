@@ -1,13 +1,10 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
   int numRows;
   cin >> numRows;
-
   vector<vector<int>> ans;
-
   for (int row = 1; row <= numRows; row++)
   {
     long long val = 1;
