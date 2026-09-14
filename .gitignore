@@ -1,0 +1,5 @@
+# Ignore the VS Code settings folder
+.vscode/
+
+# Ignore compiled C++ executable files
+*.exe
